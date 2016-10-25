@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="student" class="com.ssh.entities.Student"></bean>
+<bean id="user" class="com.ssh.entities.User"></bean>
+
+<bean id="usersDao" class="com.ssh.dao.UsersDao">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+<bean id="usersService" class="com.ssh.service.UsersService">
+	<property name="usersDao" ref="usersDao"></property>
+</bean>
+<bean id="userAction" class="com.ssh.actions.UserAction" scope="prototype">
+	<property name="usersService" ref="usersService"></property>
+</bean>
+
+<bean id="studentsDao" class="com.ssh.dao.StudentsDao">
+	<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+<bean id="studentsService" class="com.ssh.service.StudentsService">
+	<property name="studentsDao" ref="studentsDao"></property>
+</bean>
+<bean id="studentAction" class="com.ssh.actions.StudentAction" scope="prototype">
+	<property name="studentsService" ref="studentsService"></property>
+</bean>
+</beans>
+
