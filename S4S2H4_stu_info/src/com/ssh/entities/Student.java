@@ -1,8 +1,7 @@
 package com.ssh.entities;
 
 import java.util.Date;
-////
-/////
+
 
 //Ñ§ÉúÀà
 public class Student {
